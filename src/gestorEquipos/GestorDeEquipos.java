@@ -81,6 +81,7 @@ public class GestorDeEquipos {
         System.out.println("2. Mostrar Jugadores");
         System.out.println("3. Limpiar Consola");
         System.out.println("4. Modificar Jugadores");
+        System.out.println("5. Agregar Jugador");
         System.out.println("0. Salir");
         System.out.println("==========================\n\n");
 
@@ -98,6 +99,10 @@ public class GestorDeEquipos {
         System.out.println("===== MENU MODIFICAR JUGADORES =====\n");
         System.out.println("Digite el número de jugador a modificar");
         System.out.println();
+    }
+
+    public static void agregarJugador(){
+
     }
 
     public static void menuModificarJugador(Jugador vJugador1, Jugador vJugador2, Jugador vJugador3, Scanner teclado) {
