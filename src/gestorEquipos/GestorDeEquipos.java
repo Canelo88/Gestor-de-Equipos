@@ -64,6 +64,10 @@ public class GestorDeEquipos {
                     System.out.println("0. Para volver al menu anterior!");
                     menuModificarJugador(Jugador1, Jugador2, Jugador3, teclado);
                     break;
+                    
+                case "5":
+                    agregarJugador();
+                    break;
 
                 case "0":
                     System.out.println("Saliendo del programa...");
@@ -102,7 +106,7 @@ public class GestorDeEquipos {
     }
 
     public static void agregarJugador(){
-
+               
     }
 
     public static void menuModificarJugador(Jugador vJugador1, Jugador vJugador2, Jugador vJugador3, Scanner teclado) {
