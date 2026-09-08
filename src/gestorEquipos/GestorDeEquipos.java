@@ -4,6 +4,7 @@
  */
 package gestorEquipos;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import gestorEquipos.Equipo;
 import gestorEquipos.Jugador;
@@ -17,9 +18,8 @@ public class GestorDeEquipos {
 
         //Variables Locales
         String opcion = "";
-
-        //Inicialización de variables
         Scanner teclado = new Scanner(System.in);
+        ArrayList<Equipo> Equipos = new ArrayList<>();
 
         //Llena la Base de datos
         Equipo Equipo1 = new Equipo("Barcelona", "España", -1);
