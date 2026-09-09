@@ -25,26 +25,7 @@ public class Equipo {
         
     }    
     
-    //Get & Set
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public int getCantTitulos() {
-        return cantTitulos;
-    }
+    //Get & Set 
 
     public void setCantTitulos(int cantTitulos) {
         if (cantTitulos >= 0 && cantTitulos <= 200)

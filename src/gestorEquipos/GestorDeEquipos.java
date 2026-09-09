@@ -1,115 +1,190 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package gestorEquipos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import gestorEquipos.Equipo;
-import gestorEquipos.Jugador;
 
 public class GestorDeEquipos {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
-        //Variables Locales
+        // <editor-fold defaultstate="collapsed" desc="DECLARACIÓN DE VARIABLES">
         String opcion = "";
         Scanner teclado = new Scanner(System.in);
         ArrayList<Equipo> Equipos = new ArrayList<>();
+        ArrayList<Jugador> Jugadores = new ArrayList<>();
+        // </editor-fold>
 
-        //Llena la Base de datos
-        Equipo Equipo1 = new Equipo("Barcelona", "España", -1);
-        Equipo Equipo2 = new Equipo("Saprisa", "Costa Rica", 41);
-        Equipo Equipo3 = new Equipo("Heredia", "Costa Rica", 32);
+        // <editor-fold defaultstate="collapsed" desc="LLENADO DE BASE DE DATOS">
+        Equipos.add(new Equipo("Barcelona", "España", -1));
+        Equipos.add(new Equipo("Saprisa", "Costa Rica", 41));
+        Equipos.add(new Equipo("Heredia", "Costa Rica", 32));
 
-        Jugador Jugador1 = new Jugador("Andrés", -1, "Central", 6);
-        Jugador Jugador2 = new Jugador("Carlos", 38, "Central", 6);
-        Jugador Jugador3 = new Jugador("Ignacio", 38, "Central", 6);
+        Jugadores.add(new Jugador("Andrés", -1, "Central", 6));
+        Jugadores.add(new Jugador("Carlos", 38, "Central", 6));
+        Jugadores.add(new Jugador("Ignacio", 38, "Central", 6));
+        // </editor-fold>
 
-        //Código del main        
-        menuPrincipal();
+        // <editor-fold defaultstate="collapsed" desc="CODIGO MAIN"> 
+        menuPrincipal("");
 
-        while (!opcion.equalsIgnoreCase("0")) {
+        while (!opcion.equals("0")) {
 
             opcion = teclado.nextLine();
 
+            menuPrincipal(textoLineaConsola(String.format("Opción seleccionada: [%s] Continuamos...", opcion)));
+
             switch (opcion) {
                 case "1":
-                    System.out.println("Seleccionó Mostrar Equipos");
-                    Equipo1.mostrarInformacion();
-                    Equipo2.mostrarInformacion();
-                    Equipo3.mostrarInformacion();
+                    System.out.println();
+                    menuJugadoresMostrar(Jugadores);
                     break;
 
                 case "2":
-                    System.out.println("Seleccionó Mostrar Jugadores");
-                    Jugador1.mostrarInformacion();
-                    Jugador2.mostrarInformacion();
-                    Jugador3.mostrarInformacion();
+
                     break;
 
                 case "3":
-                    limpiarPantalla();
+                    menuJugadoresModificar();
                     break;
 
-                case "4":
-                    menuModificarJugadores();
-                    System.out.println("1. " + Jugador1.getNombre());
-                    System.out.println("2. " + Jugador2.getNombre());
-                    System.out.println("3. " + Jugador3.getNombre());
-                    System.out.println("0. Para volver al menu anterior!");
-                    menuModificarJugador(Jugador1, Jugador2, Jugador3, teclado);
-                    break;
-                    
                 case "5":
-                    agregarJugador();
+                    menuJugadoresAgregar();
                     break;
 
                 case "0":
-                    System.out.println("Saliendo del programa...");
+                    System.out.println("\n║ >>>>>>>>>>>>>> Saliendo del programa... <<<<<<<<<<<<<<<< ║");
+                    System.out.println("╚══════════════════════════════════════════════════════════╝");
                     break;
 
                 default:
-                    System.out.println("Opción inválida.");
+                    menuPrincipal(textoLineaConsola("¡Opción " + opcion + " inválida!"));
             }
         }
+        // </editor-fold>
     }
 
-    public static void menuPrincipal() {
-        System.out.println("===== MENU PRINCIPAL =====\n");
-        System.out.println("1. Mostrar Equipos");
-        System.out.println("2. Mostrar Jugadores");
-        System.out.println("3. Limpiar Consola");
-        System.out.println("4. Modificar Jugadores");
-        System.out.println("5. Agregar Jugador");
-        System.out.println("0. Salir");
-        System.out.println("==========================\n\n");
+    // <editor-fold defaultstate="collapsed" desc="MÉTODOS Y FUNCIONES">
+    public static void menuPrincipal(String pLineaExtra) {
+        System.out.println("\n".repeat(60));
 
-        System.out.println("Ingrese la opción del menú: ");
-    }
-
-    public static void limpiarPantalla() {
-        for (int i = 0; i < 100; i++) {
-            System.out.println();
+//                          0        1         2         3         4         5         6         7
+//                          1234567890123456789012345678901234567890123456789012345678901234567890
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.println("║" + centrar("MENU PRINCIPAL", 58) + "║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║ JUGADORES                                                ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║ └> 1. Mostrar                                            ║");
+        System.out.println("║ └> 2. Agregar                                            ║");
+        System.out.println("║ └> 3. Modificar                                          ║");
+        System.out.println("║ └> 4. Eliminar                                           ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║ EQUIPOS                                                  ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║ └> 5. Mostrar                                            ║");
+        System.out.println("║ └> 6. Agregar                                            ║");
+        System.out.println("║ └> 7. Modificar                                          ║");
+        System.out.println("║ └> 8. Eliminar                                           ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        System.out.println("║                                              0. Salir <┘ ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        
+        if (pLineaExtra.length()>0) {
+            System.out.println(pLineaExtra);
+        } else {
+            System.out.println(textoLineaConsola(""));
         }
-        menuPrincipal();
+        
+        System.out.println("╠══════════════════════════════════════════════════════════╣");        
+        System.out.print(String.format("║ %56s", "Ingrese la opción del menú >>>>>>>>>>>> ["));
+
+        //System.out.println("╔══════════════════════════════════════════════════════════╗");
+        //System.out.println("║                     MENU PRINCIPAL                       ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║ JUGADORES                                                ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║ └> 1. Mostrar                                            ║");
+        //System.out.println("║ └> 2. Agregar                                            ║");
+        //System.out.println("║ └> 3. Modificar                                          ║");
+        //System.out.println("║ └> 4. Eliminar                                           ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║ EQUIPOS                                                  ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║ └> 5. Mostrar                                            ║");
+        //System.out.println("║ └> 6. Agregar                                            ║");
+        //System.out.println("║ └> 7. Modificar                                          ║");
+        //System.out.println("║ └> 8. Eliminar                                           ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║                                              0. Salir <┘ ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║                                                          ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.print  ("║ >>>>>>>>>>>>>> Ingrese la opción del menú >>>>>>>>>>>> [");
     }
 
-    public static void menuModificarJugadores() {
+    public static void menuJugadoresModificar() {
         System.out.println("===== MENU MODIFICAR JUGADORES =====\n");
         System.out.println("Digite el número de jugador a modificar");
         System.out.println();
     }
 
-    public static void agregarJugador(){
-               
+    /**
+     * Muestra en Consola todos los Jugadores registrados
+     *
+     * @param pJugadores lista de jugadores que se desea mostrar
+     * @return no devuelve nada al ser un método void
+     */
+    public static void menuJugadoresMostrar(ArrayList<Jugador> pJugadores) {
+        System.out.println("\n".repeat(60));
+
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.println("║                   MOSTRAR JUGADORES                      ║");
+        System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("║                                                          ║");
+        //System.out.println("╠══════════════════════════════════════════════════════════╣");
+        //System.out.print  ("║ >>>>>>>>>>>>>> Ingrese la opción del menú >>>>>>>>>>>> [");        
+
+        for (int i = 0; i <= 17; i++) {
+            if (i < pJugadores.size()) {
+                System.out.println(
+                        textoLineaConsola(
+                                String.format("%03d", (i + 1))
+                                + " | "
+                                + pJugadores.get(i).getNombreJugador().toUpperCase()
+                                + " | "
+                                + pJugadores.get(i).getPosicionJugador().toUpperCase()
+                        ));
+            } else {
+                System.out.println(textoLineaConsola(""));
+            }
+
+        }
+//        System.out.println("=========================");
+//        System.out.println("Total de Jugadores: " + pJugadores.size());
+//        System.out.println();
     }
 
-    public static void menuModificarJugador(Jugador vJugador1, Jugador vJugador2, Jugador vJugador3, Scanner teclado) {
+    public static void menuJugadoresAgregar() {
+
+    }
+
+    public static void menuJugadoresModificar(Jugador vJugador1, Jugador vJugador2, Jugador vJugador3, Scanner teclado) {
 
         //Variables Locales
         String opcion = "";
@@ -123,18 +198,18 @@ public class GestorDeEquipos {
 
             switch (opcion) {
                 case "1":
-                    System.out.println("===== DIGITES NUEVOS VALORES PARA " + vJugador1.getNombre());
+//                    System.out.println("===== DIGITES NUEVOS VALORES PARA " + vJugador1.getNombre());
                     break;
 
                 case "2":
-                    System.out.println("===== DIGITES NUEVOS VALORES PARA " + vJugador1.getNombre());
+//                    System.out.println("===== DIGITES NUEVOS VALORES PARA " + vJugador1.getNombre());
                     break;
 
                 case "3":
-                    System.out.println("===== DIGITES NUEVOS VALORES PARA " + vJugador1.getNombre());
+//                    System.out.println("===== DIGITES NUEVOS VALORES PARA " + vJugador1.getNombre());
                     break;
                 case "0":
-                    menuPrincipal();
+                    menuPrincipal("");
                     break;
                 default:
                     System.out.println("Jugador inválido.");
@@ -152,4 +227,34 @@ public class GestorDeEquipos {
 
         System.out.println();
     }
+
+    public static String textoLineaConsola(String pTexto) {
+        return String.format("║ %-56s ║", pTexto);
+    }
+
+    public static String centrar(String texto, int ancho) {
+        int espacios = ancho - texto.length();
+        int izquierda = espacios / 2;
+        int derecha = espacios - izquierda;
+
+        return " ".repeat(izquierda) + texto + " ".repeat(derecha);
+    }
+
+    // </editor-fold>
 }
+
+//| Símbolo | Nombre aproximado          |
+//| ------- | -------------------------- |
+//| `═`     | Línea horizontal doble     |
+//| `║`     | Línea vertical doble       |
+//| `╔`     | Esquina superior izquierda |
+//| `╗`     | Esquina superior derecha   |
+//| `╚`     | Esquina inferior izquierda |
+//| `╝`     | Esquina inferior derecha   |
+//| `╠`     | Unión izquierda            |
+//| `╣`     | Unión derecha              |
+//| `╦`     | Unión superior             |
+//| `╩`     | Unión inferior             |
+//| `╬`     | Cruce                      |
+//┌ ─ ┐ │ └ ┘
+//├ ┤ ┬ ┴ ┼

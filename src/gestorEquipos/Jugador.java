@@ -15,60 +15,46 @@ public class Jugador {
     Scanner teclado = new Scanner(System.in);
     
     //Declaración de variables locales
-    private String nombre;
-    private int edad;
-    private String posicion;
-    private int numero;
+    private String nombreJugador;
+    private int edadJugador;
+    private String posicionJugador;
+    private int numeroJugador;
 
     //Constructor
-    public Jugador(String nombre, int edad, String posicion, int numero) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.posicion = posicion;
-        this.numero = numero;
+    public Jugador(String pNombreJugador, int pEdadJugador, String pPosicionJugador, int pNumeroJugador) {
+        this.nombreJugador = pNombreJugador;
+        this.edadJugador = pEdadJugador;
+        this.posicionJugador = pPosicionJugador;
+        this.numeroJugador = pNumeroJugador;
     }
 
     //Get & Set
-    public String getNombre() {
-        return nombre;
+    public String getNombreJugador() {
+        return nombreJugador;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getPosicionJugador() {
+        return posicionJugador;
     }
 
-    public int getEdad() {
-        return edad;
+    public int getEdadJugador() {
+        return edadJugador;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public int getNumeroJugador() {
+        return numeroJugador;
     }
-
-    public String getPosicion() {
-        return posicion;
-    }
-
-    public void setPosicion(String posicion) {
-        this.posicion = posicion;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
+    
+    
     
     //Métodos y Funciones
     public void mostrarInformacion()
     {
         System.out.println("===== JUGADOR =====\n");
-        System.out.println("Nombre:\t\t" + nombre);
-        System.out.println("Edad:\t\t" + edad);
-        System.out.println("Posición:\t" + posicion);
-        System.out.println("Número:\t\t" + numero);
+        System.out.println("Nombre:\t\t" + nombreJugador);
+        System.out.println("Edad:\t\t" + edadJugador);
+        System.out.println("Posición:\t" + posicionJugador);
+        System.out.println("Número:\t\t" + numeroJugador);
         System.out.println();        
     }    
 }
