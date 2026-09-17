@@ -1,12 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package gestorEquipos;
 
-/* 
- * @author andresgonzalezgarcia
- */
 public class Equipo {
     
     //Declaración de variables privadas
@@ -52,4 +45,17 @@ public class Equipo {
     public void menuModificarEquipo(){
         
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nEquipo{");
+        sb.append("nombre=").append(nombre);
+        sb.append(", pais=").append(pais);
+        sb.append(", cantTitulos=").append(cantTitulos);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    
 }
