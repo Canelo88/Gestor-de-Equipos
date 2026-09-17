@@ -1,7 +1,5 @@
 package gestorEquipos;
 
-import java.util.Scanner;
-
 public class Jugador {
 
     //Declaración de variables locales
