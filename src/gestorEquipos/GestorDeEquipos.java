@@ -24,6 +24,9 @@ public class GestorDeEquipos {
         Jugadores.add(new Jugador("Ignacio", 38, "Central", 6));
         // </editor-fold>
 
+        System.out.println(Jugadores.toString());
+        System.out.println(Equipos.toString());
+        
         // <editor-fold defaultstate="collapsed" desc="CODIGO MAIN"> 
         menuPrincipal("");
 
