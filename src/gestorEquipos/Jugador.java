@@ -17,6 +17,17 @@ public class Jugador {
         this.posicionJugador = pPosicionJugador;
         this.numeroJugador = pNumeroJugador;
     }
+    
+    //Gets & Sets
+
+    public String getNombreJugador() {
+        return nombreJugador;
+    }
+
+    public String getPosicionJugador() {
+        return posicionJugador;
+    }
+    
 
     //Métodos y Funciones
     public void mostrarInformacion() {
