@@ -18,7 +18,7 @@ public class GestorDeEquipos {
         Equipos.add(new Equipo("Barcelona", "España", -1));
         Equipos.add(new Equipo("Saprisa", "Costa Rica", 41));
         Equipos.add(new Equipo("Heredia", "Costa Rica", 32));
-
+                
         Jugadores.add(new Jugador("Andrés", -1, "Central", 6));
         Jugadores.add(new Jugador("Carlos", 38, "Central", 6));
         Jugadores.add(new Jugador("Ignacio", 38, "Central", 6));
@@ -26,6 +26,11 @@ public class GestorDeEquipos {
 
         System.out.println(Jugadores.toString());
         System.out.println(Equipos.toString());
+        
+        Equipo equipo1 = new Equipo("Barcelona", "España", -1);
+        equipo1.setCantTitulos(100);
+        
+        
         
         // <editor-fold defaultstate="collapsed" desc="CODIGO MAIN"> 
         menuPrincipal("");
@@ -129,6 +134,7 @@ public class GestorDeEquipos {
         System.out.println("===== MENU MODIFICAR JUGADORES =====\n");
         System.out.println("Digite el número de jugador a modificar");
         System.out.println();
+        
     }
 
     /**
