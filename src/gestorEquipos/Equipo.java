@@ -20,6 +20,12 @@ public class Equipo {
     
     //Get & Set 
 
+    /**
+     * Método encargado de setear la cantidad de títulos de un equipo
+     * con la condición de que estos no sean menores a 0 ni mayores a
+     * 200 títulos
+     * @param cantTitulos 
+     */
     public void setCantTitulos(int cantTitulos) {
         if (cantTitulos >= 0 && cantTitulos <= 200)
         {
